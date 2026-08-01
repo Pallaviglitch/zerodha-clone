@@ -13,43 +13,43 @@ function Footer() {
           </div>
           <div className="col">
             <p>Company</p>
-            <a href="">About</a>
+            <a href="/about">About</a>
             <br />
-            <a href="">Products</a>
+            <a href="/product">Products</a>
             <br />
-            <a href="">Pricing</a>
+            <a href="/pricing">Pricing</a>
             <br />
-            <a href="">Referral programme</a>
+            <a href="/signup">Referral programme</a>
             <br />
-            <a href="">Careers</a>
+            <a href="https://careers.zerodha.com/" target="_blank" rel="noreferrer">Careers</a>
             <br />
-            <a href="">Zerodha.tech</a>
+            <a href="https://zerodha.tech/" target="_blank" rel="noreferrer">Zerodha.tech</a>
             <br />
-            <a href="">Press & media</a>
+            <a href="https://zerodha.com/media/" target="_blank" rel="noreferrer">Press & media</a>
             <br />
-            <a href="">Zerodha cares (CSR)</a>
+            <a href="https://zerodha.com/zerodha-cares/" target="_blank" rel="noreferrer">Zerodha cares (CSR)</a>
             <br />
           </div>
           <div className="col">
             <p>Support</p>
-            <a href="">Contact</a>
+            <a href="/support">Contact</a>
             <br />
-            <a href="">Support portal</a>
+            <a href="/support">Support portal</a>
             <br />
-            <a href="">Z-Connect blog</a>
+            <a href="https://zerodha.com/z-connect/" target="_blank" rel="noreferrer">Z-Connect blog</a>
             <br />
-            <a href="">List of charges</a>
+            <a href="/pricing">List of charges</a>
             <br />
-            <a href="">Downloads & resources</a>
+            <a href="https://zerodha.com/downloads/" target="_blank" rel="noreferrer">Downloads & resources</a>
             <br />
           </div>
           <div className="col">
             <p>Account</p>
-            <a href="">Open an account</a>
+            <a href="/signup">Open an account</a>
             <br />
-            <a href="">Fund transfer</a>
+            <a href="/dashboard">Fund transfer</a>
             <br />
-            <a href="">60 day challenge</a>
+            <a href="/signup">60 day challenge</a>
             <br />
           </div>
         </div>
