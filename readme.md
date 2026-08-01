@@ -19,11 +19,10 @@ This repository contains a full-stack stock trading demo with:
    npm start
    ```
 
-3. Open the dashboard app in your browser:
-   - `http://localhost:3000`
+3. Open the dashboard app in your browser using the deployed frontend URL.
 
-4. The backend runs at:
-   - `http://localhost:3002`
+4. The backend API is hosted at:
+   - `https://zerodha-backend-puka.onrender.com`
 
 ## Key demo flows
 
@@ -38,5 +37,5 @@ This repository contains a full-stack stock trading demo with:
 
 - Backend environment variables are loaded from `backend/.env`
 - The backend uses MongoDB for demo data and seeding
-- The dashboard app uses Axios to call `http://localhost:3002`
+- The dashboard app uses Axios to call the configured API base URL, defaulting to `https://zerodha-backend-puka.onrender.com`
 - If you want a clean install, delete `node_modules` and run `npm run install-all`

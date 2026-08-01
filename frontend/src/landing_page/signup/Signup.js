@@ -2,7 +2,9 @@ import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
-const API_BASE_URL = process.env.REACT_APP_API_BASE_URL || "http://localhost:3002";
+const API =
+  process.env.REACT_APP_API_BASE_URL ||
+  "https://zerodha-backend-puka.onrender.com";
 
 function Signup() {
   const [form, setForm] = useState({
@@ -22,7 +24,7 @@ function Signup() {
     setMessage("");
 
     try {
-      const res = await axios.post(`${API_BASE_URL}/signup`, form);
+      const res = await axios.post(`${API}/signup`, form);
       localStorage.setItem("trading-user", JSON.stringify(res.data.user || form));
       setMessage("Account created successfully.");
       navigate("/dashboard");
