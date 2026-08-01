@@ -1,0 +1,14 @@
+{
+  "name": "zerodha-clone",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "install-all": "npm install && cd backend && npm install && cd ../dashboard && npm install && cd ../frontend && npm install",
+    "start:backend": "cd backend && npm start",
+    "start:dashboard": "cd dashboard && npm start",
+    "start": "npx concurrently \"npm run start:backend\" \"npm run start:dashboard\""
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}

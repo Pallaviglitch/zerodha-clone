@@ -12,6 +12,86 @@ code {
     monospace;
 }
 
+.auth-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  box-sizing: border-box;
+  background: linear-gradient(135deg, #f5f7ff 0%, #eef3ff 100%);
+}
+
+.auth-card {
+  width: 100%;
+  max-width: 420px;
+  background: #ffffff;
+  border-radius: 14px;
+  box-shadow: 0 12px 35px rgba(15, 23, 42, 0.12);
+  padding: 32px 28px;
+  box-sizing: border-box;
+}
+
+.auth-card h2 {
+  margin: 0 0 8px;
+  font-size: 1.6rem;
+  color: #1f2937;
+}
+
+.auth-card p {
+  margin: 0 0 20px;
+  color: #6b7280;
+  font-size: 0.95rem;
+}
+
+.auth-card form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.auth-card input {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  box-sizing: border-box;
+  font-size: 0.95rem;
+}
+
+.auth-card input:focus {
+  outline: none;
+  border-color: #4184f3;
+  box-shadow: 0 0 0 3px rgba(65, 132, 243, 0.15);
+}
+
+.auth-card button {
+  width: 100%;
+  padding: 12px 16px;
+  border: none;
+  border-radius: 8px;
+  background: #4184f3;
+  color: #fff;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.auth-card button:hover {
+  background: #2f6dd9;
+}
+
+.auth-card button:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.auth-message {
+  margin-top: 8px;
+  font-size: 0.9rem;
+  color: #2563eb;
+}
+
 .dashboard-container {
   width: 100%;
   height: 90vh;
@@ -250,13 +330,58 @@ code {
 }
 
 .menu-container {
-  flex-basis: 68%;
+  flex: 1;
+  min-width: 0;
   height: 100%;
   padding: 10px 20px;
   box-sizing: border-box;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 16px;
+}
+
+.brand-block {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+.brand-logo {
+  width: 42px;
+  height: 42px;
+  object-fit: contain;
+}
+
+.brand-name {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #1f2937;
+  letter-spacing: 0.02em;
+}
+
+.topbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-right: 12px;
+  flex-shrink: 0;
+}
+
+.action-button {
+  text-decoration: none;
+  padding: 8px 14px;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #374151;
+  background: #f3f4f6;
+}
+
+.action-button.primary {
+  background: #4184f3;
+  color: #fff;
 }
 
 .logo {
@@ -267,23 +392,32 @@ code {
 .menus {
   display: flex;
   align-items: center;
-  justify-content: space-evenly;
+  justify-content: space-between;
+  flex: 1;
+  min-width: 0;
+  gap: 12px;
 }
 
 .menus ul {
   list-style-type: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: nowrap;
 }
 
 .menus li {
   display: inline-block;
-  margin-right: 30px;
   text-decoration: none;
 }
 
 .menu {
-  font-size: 0.8rem;
-  font-weight: 400;
+  font-size: 0.82rem;
+  font-weight: 500;
   color: rgb(70, 70, 70);
+  white-space: nowrap;
 }
 
 .menu.selected {
@@ -298,30 +432,35 @@ hr {
 .profile {
   display: flex;
   align-items: center;
-  justify-content: space-evenly;
-  margin-left: 20px;
+  justify-content: center;
+  margin-left: 16px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: #f8fafc;
+  flex-shrink: 0;
 }
 
 .profile .avatar {
-  width: 30px;
-  height: 30px;
+  width: 34px;
+  height: 34px;
   text-align: center;
   position: relative;
-  font-size: 0.7rem;
-  font-weight: 400;
-  color: rgb(221, 139, 221);
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #7c3aed;
   justify-content: center;
   align-items: center;
   border-radius: 100%;
-  text-align: center;
   display: flex;
-  background: rgb(252, 229, 252);
+  background: #ede9fe;
   margin-right: 8px;
 }
 
 .profile .username {
-  font-size: 0.8rem;
-  font-weight: 300;
+  font-size: 0.86rem;
+  font-weight: 500;
+  color: #374151;
+  white-space: nowrap;
 }
 
 /* sudo selectors */
@@ -568,23 +707,27 @@ hr {
 
 .topbar-container {
   width: 100%;
-  height: 10vh;
+  min-height: 10vh;
   display: flex;
   align-items: center;
   box-shadow: 0px 0px 4px 2px rgb(236, 235, 235);
   box-sizing: border-box;
   z-index: 9;
+  padding: 8px 16px;
+  gap: 12px;
 }
 
 .indices-container {
-  flex-basis: 32%;
+  flex-basis: 28%;
+  min-width: 280px;
   height: 100%;
-  padding: 10px 20px;
+  padding: 10px 12px;
   border-right: 1px solid rgb(224, 224, 224);
   box-sizing: border-box;
   display: flex;
   align-items: center;
   justify-content: space-around;
+  gap: 12px;
 }
 
 .nifty {
@@ -608,23 +751,27 @@ hr {
 }
 
 .index {
-  font-size: 0.8rem;
-  font-weight: 500;
+  font-size: 0.78rem;
+  font-weight: 600;
   text-transform: uppercase;
   color: rgb(97, 97, 97);
   white-space: nowrap;
 }
 
 .index-points {
-  font-size: 0.8rem;
-  font-weight: 500;
-  color: rgb(223, 73, 73);
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #111827;
 }
 
 .percent {
-  font-size: 0.8rem;
-  font-weight: 400;
+  font-size: 0.78rem;
+  font-weight: 500;
   color: rgb(146, 146, 146);
+}
+
+.percent.up {
+  color: #16a34a;
 }
 
 /* sudo selectors */
@@ -634,6 +781,7 @@ hr {
 
 .watchlist-container {
   flex-basis: 32%;
+  min-width: 280px;
   height: 100%;
   box-sizing: border-box;
   box-shadow: 0px 0px 4px 1px rgb(236, 235, 235);
@@ -650,13 +798,14 @@ hr {
 
 .search {
   width: 100%;
-  height: 6%;
+  height: 48px;
   border: none;
   padding: 15px 20px;
   font-size: 0.9rem;
   font-weight: 400;
-  color: rgb(241, 241, 241);
+  color: #374151;
   border-bottom: 0.8px solid rgb(235, 234, 234);
+  background: #f9fafb;
 }
 
 .counts {
@@ -725,12 +874,13 @@ hr {
 }
 
 .actions span button {
-  width: 40px;
-  height: 30px;
-  border-radius: 4px;
+  width: 44px;
+  height: 32px;
+  border-radius: 6px;
   text-align: center;
   margin-right: 8px;
   cursor: pointer;
+  padding: 0 6px;
 }
 
 .buy {

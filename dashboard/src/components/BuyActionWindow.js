@@ -1,7 +1,4 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
-
-import axios from "axios";
+import React, { useContext, useState } from "react";
 
 import GeneralContext from "./GeneralContext";
 
@@ -10,20 +7,35 @@ import "./BuyActionWindow.css";
 const BuyActionWindow = ({ uid }) => {
   const [stockQuantity, setStockQuantity] = useState(1);
   const [stockPrice, setStockPrice] = useState(0.0);
+  const [submitting, setSubmitting] = useState(false);
+  const [error, setError] = useState(null);
+  const generalContext = useContext(GeneralContext);
 
   const handleBuyClick = () => {
-    axios.post("http://localhost:3002/newOrder", {
-      name: uid,
-      qty: stockQuantity,
-      price: stockPrice,
-      mode: "BUY",
-    });
+    setSubmitting(true);
+    setError(null);
 
-    GeneralContext.closeBuyWindow();
+    try {
+      const currentOrders = JSON.parse(localStorage.getItem("trading-orders") || "[]");
+      const newOrder = {
+        name: uid,
+        qty: Number(stockQuantity),
+        price: Number(stockPrice),
+        mode: "BUY",
+      };
+      localStorage.setItem("trading-orders", JSON.stringify([...currentOrders, newOrder]));
+      generalContext.closeBuyWindow();
+      window.location.reload();
+    } catch (err) {
+      console.error("Order failed", err);
+      setError("Failed to place order. Please try again.");
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   const handleCancelClick = () => {
-    GeneralContext.closeBuyWindow();
+    generalContext.closeBuyWindow();
   };
 
   return (
@@ -57,14 +69,15 @@ const BuyActionWindow = ({ uid }) => {
       <div className="buttons">
         <span>Margin required ₹140.65</span>
         <div>
-          <Link className="btn btn-blue" onClick={handleBuyClick}>
-            Buy
-          </Link>
-          <Link to="" className="btn btn-grey" onClick={handleCancelClick}>
+          <button className="btn btn-blue" type="button" onClick={handleBuyClick} disabled={submitting}>
+            {submitting ? "Placing..." : "Buy"}
+          </button>
+          <button className="btn btn-grey" type="button" onClick={handleCancelClick} disabled={submitting}>
             Cancel
-          </Link>
+          </button>
         </div>
       </div>
+      {error && <div className="error-message">{error}</div>}
     </div>
   );
 };

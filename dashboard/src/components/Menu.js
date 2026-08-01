@@ -19,7 +19,10 @@ const Menu = () => {
 
   return (
     <div className="menu-container">
-      <img src="logo.png" style={{ width: "50px" }} />
+      <div className="brand-block">
+        <img src="logo.png" alt="Zerodha logo" className="brand-logo" />
+        <span className="brand-name">Zerodha</span>
+      </div>
       <div className="menus">
         <ul>
           <li>
@@ -91,8 +94,8 @@ const Menu = () => {
         </ul>
         <hr />
         <div className="profile" onClick={handleProfileClick}>
-          <div className="avatar">ZU</div>
-          <p className="username">USERID</p>
+          <div className="avatar">JD</div>
+          <p className="username">Demo User</p>
         </div>
       </div>
     </div>
